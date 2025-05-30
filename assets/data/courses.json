@@ -1,0 +1,201 @@
+{
+    "1": {
+      "title": "React Native",
+      "overview": "Build cross-platform mobile apps using React Native and Expo.",
+      "modules": [
+        "Getting Started with Expo",
+        "React Navigation",
+        "Styling with Flexbox",
+        "State Management"
+      ],
+      "resources": [
+        "https://reactnative.dev",
+        "https://docs.expo.dev",
+        "https://reactnavigation.org"
+      ]
+    },
+    "2": {
+      "title": "Advanced JavaScript",
+      "overview": "Deep dive into JavaScript with closures, asynchronous programming, and modern patterns.",
+      "modules": [
+        "Closures and Scope",
+        "Promises & Async/Await",
+        "ES6+ Features",
+        "JavaScript Design Patterns"
+      ],
+      "resources": [
+        "https://javascript.info",
+        "https://frontendmasters.com",
+        "https://www.udemy.com/course/understand-javascript/"
+      ]
+    },
+    "3": {
+      "title": "UI/UX Design Fundamentals",
+      "overview": "Master the basics of UI/UX design with practical design systems and usability testing.",
+      "modules": [
+        "Design Principles",
+        "Wireframing & Prototyping",
+        "Figma Basics",
+        "User Testing"
+      ],
+      "resources": [
+        "https://uxdesign.cc",
+        "https://www.figma.com/learn/",
+        "https://material.io/design"
+      ]
+    },
+    "4": {
+      "title": "Python for Data Science",
+      "overview": "Data science using Python libraries like NumPy, Pandas, and Matplotlib.",
+      "modules": [
+        "Python Basics",
+        "NumPy & Pandas",
+        "Data Visualization",
+        "Data Cleaning Techniques"
+      ],
+      "resources": [
+        "https://pandas.pydata.org",
+        "https://numpy.org",
+        "https://matplotlib.org"
+      ]
+    },
+    "5": {
+      "title": "Machine Learning 101",
+      "overview": "Get started with ML models, tools, and practical applications.",
+      "modules": [
+        "ML Basics & Terminology",
+        "Supervised Learning",
+        "Unsupervised Learning",
+        "Model Evaluation"
+      ],
+      "resources": [
+        "https://scikit-learn.org",
+        "https://www.coursera.org/learn/machine-learning",
+        "https://developers.google.com/machine-learning"
+      ]
+    },
+    "6": {
+      "title": "SQL & Databases",
+      "overview": "Master SQL queries and relational database design.",
+      "modules": [
+        "SQL Basics",
+        "Joins and Aggregations",
+        "Subqueries",
+        "Database Normalization"
+      ],
+      "resources": [
+        "https://www.sqltutorial.org",
+        "https://mode.com/sql-tutorial/",
+        "https://www.w3schools.com/sql/"
+      ]
+    },
+    "7": {
+      "title": "Cloud Computing with AWS",
+      "overview": "Basics of AWS services including EC2, S3, and Lambda functions.",
+      "modules": [
+        "AWS Basics",
+        "EC2 & IAM",
+        "S3 & Storage",
+        "Lambda & Serverless"
+      ],
+      "resources": [
+        "https://aws.amazon.com/training/",
+        "https://docs.aws.amazon.com/",
+        "https://www.freecodecamp.org/news/learn-the-basics-of-cloud-computing-with-aws/"
+      ]
+    },
+    "8": {
+      "title": "Web Development",
+      "overview": "Learn HTML, CSS, and JavaScript to build modern websites and web apps.",
+      "modules": [
+        "Intro to HTML",
+        "CSS Basics",
+        "JavaScript Essentials",
+        "Responsive Design"
+      ],
+      "resources": [
+        "https://developer.mozilla.org",
+        "https://freecodecamp.org",
+        "https://www.w3schools.com"
+      ]
+    },
+    "9": {
+    "title": "Machine Learning Essentials",
+    "overview": "Learn the core concepts and techniques of Machine Learning, including supervised and unsupervised learning, model evaluation, and practical implementation using Python.",
+    "modules": [
+      "Introduction to Machine Learning",
+      "Supervised Learning: Regression & Classification",
+      "Unsupervised Learning: Clustering & Dimensionality Reduction",
+      "Model Evaluation and Validation",
+      "Implementing ML with Scikit-learn"
+    ],
+    "resources": [
+      "https://scikit-learn.org/stable/",
+      "https://www.coursera.org/learn/machine-learning",
+      "https://developers.google.com/machine-learning/crash-course",
+      "https://www.kaggle.com/learn/intro-to-machine-learning"
+    ]
+  },
+  "10": {
+    "title": "Development Essentials",
+    "overview": "Master the fundamentals of software development including programming, version control, and modern web technologies.",
+    "modules": [
+      "Introduction to Software Development",
+      "Git & Version Control",
+      "Frontend Development with HTML/CSS/JS",
+      "Backend APIs with Node.js"
+    ],
+    "resources": [
+      "https://developer.mozilla.org",
+      "https://www.w3schools.com",
+      "https://git-scm.com"
+    ]
+  },
+  "11": {
+    "title": "Design Basics",
+    "overview": "Learn the core principles of visual and UX design to craft beautiful and user-friendly digital interfaces.",
+    "modules": [
+      "Fundamentals of Graphic Design",
+      "UI vs UX",
+      "Figma for UI Design",
+      "Designing for Mobile & Web"
+    ],
+    "resources": [
+      "https://www.figma.com/learn/",
+      "https://uxdesign.cc",
+      "https://material.io/design"
+    ]
+  },
+  "12": {
+    "title": "Marketing Fundamentals",
+    "overview": "Understand digital marketing strategies, SEO, content creation, and social media promotion techniques.",
+    "modules": [
+      "Introduction to Digital Marketing",
+      "Search Engine Optimization (SEO)",
+      "Social Media Strategies",
+      "Email Marketing Campaigns"
+    ],
+    "resources": [
+      "https://www.hubspot.com/resources",
+      "https://moz.com/learn/seo",
+      "https://www.coursera.org/specializations/digital-marketing"
+    ]
+  },
+  "13": {
+    "title": "Business Foundations",
+    "overview": "Explore business strategies, entrepreneurship, project management, and financial literacy for modern enterprises.",
+    "modules": [
+      "Principles of Business Management",
+      "Project Planning and Execution",
+      "Entrepreneurship Basics",
+      "Financial Planning for Startups"
+    ],
+    "resources": [
+      "https://www.edx.org/course/business-fundamentals",
+      "https://www.investopedia.com",
+      "https://www.coursera.org/browse/business"
+    ]
+  }
+
+}
+  
