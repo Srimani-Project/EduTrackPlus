@@ -1,5 +1,6 @@
-
 import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import {
   Alert,
@@ -64,23 +65,30 @@ export default function Profile() {
     setShowEditModal(false);
   };
 
-  const handleLogout = () => {
-    Alert.alert(
-      'Logout',
-      'Are you sure you want to logout?',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        { 
-          text: 'Logout', 
-          style: 'destructive',
-          onPress: () => {
-            
-            Alert.alert('Logged Out', 'You have been successfully logged out.');
+const handleLogout = () => {
+  Alert.alert(
+    'Logout',
+    'Are you sure you want to logout?',
+    [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Logout',
+        style: 'destructive',
+        onPress: async () => {
+          try {
+            await AsyncStorage.removeItem('token');
+            router.replace('/'); 
+          } catch (error) {
+            console.error('Logout error:', error);
+            Alert.alert('Error', 'Something went wrong during logout');
           }
         },
-      ]
-    );
-  };
+      },
+    ]
+  );
+};
+
+
 
   const handleProfilePictureEdit = () => {
     Alert.alert(
