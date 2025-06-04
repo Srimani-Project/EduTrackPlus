@@ -1,4 +1,4 @@
-
+/*
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 
@@ -56,3 +56,17 @@ const styles = StyleSheet.create({
   title: { fontSize: 18, fontWeight: '600' },
   progress: { fontSize: 14, marginTop: 5, color: '#555' },
 });
+*/
+// app/index.tsx
+import { useEffect } from 'react';
+import { useRouter } from 'expo-router';
+
+export default function Index() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace('/(tabs)/dashboard'); // 🔁 Redirect to Dashboard tab
+  }, []);
+
+  return null;
+}
