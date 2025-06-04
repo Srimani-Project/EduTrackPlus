@@ -1,3 +1,4 @@
+
 //_layout.tsx
 //working login and logout..page perfectly
 import 'react-native-reanimated'; // 👈 MUST be first!
@@ -79,4 +80,5 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
+
 
