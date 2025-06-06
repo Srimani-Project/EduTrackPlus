@@ -1,3 +1,5 @@
+
+//app/login.tsx
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
@@ -19,7 +21,7 @@ export default function LoginScreen() {
     try {
       if (email === 'admin@example.com' && password === 'password') {
         await AsyncStorage.setItem('token', 'dummy-token');
-        router.replace('/(tabs)/dashboard');
+        router.replace('/');
       } else {
         Alert.alert('Login Failed', 'Invalid credentials. Please try again.');
       }
@@ -72,7 +74,8 @@ export default function LoginScreen() {
         </TouchableOpacity>
 
         {/* Optional: Add a "Forgot Password?" link */}
-        <TouchableOpacity onPress={() => Alert.alert('Forgot Password?', 'This feature is not yet implemented.')}>
+  
+  <TouchableOpacity onPress={() => Alert.alert('Forgot Password?', 'This feature is not yet implemented.')}>
           <Text style={styles.forgotPassword}>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
@@ -148,3 +151,5 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 });
+
+

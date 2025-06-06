@@ -1,5 +1,7 @@
 
-//_layout.tsx
+
+
+//app/_layout.tsx
 //working login and logout..page perfectly
 import 'react-native-reanimated'; // 👈 MUST be first!
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -80,5 +82,6 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
+
 
 

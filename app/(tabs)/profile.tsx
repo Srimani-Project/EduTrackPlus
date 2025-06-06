@@ -1,6 +1,7 @@
+// app/(tabs)/profile.tsx
 
 import { Ionicons } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import {
   Alert,
   Image,
@@ -12,6 +13,8 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useRouter } from 'expo-router';
 
 interface Certificate {
   id: string;
@@ -22,6 +25,8 @@ interface Certificate {
 }
 
 export default function Profile() {
+  const router = useRouter();
+  
   const [isEditing, setIsEditing] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [userName, setUserName] = useState('John Doe');
@@ -64,23 +69,24 @@ export default function Profile() {
     setShowEditModal(false);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     Alert.alert(
       'Logout',
       'Are you sure you want to logout?',
       [
         { text: 'Cancel', style: 'cancel' },
-        { 
-          text: 'Logout', 
+        {
+          text: 'Logout',
           style: 'destructive',
-          onPress: () => {
-            
-            Alert.alert('Logged Out', 'You have been successfully logged out.');
-          }
+          onPress: async () => {
+            await AsyncStorage.removeItem('token');
+            router.replace('../login');
+          },
         },
       ]
     );
   };
+
 
   const handleProfilePictureEdit = () => {
     Alert.alert(
@@ -103,21 +109,21 @@ export default function Profile() {
             source={{ uri: 'https://via.placeholder.com/120/4A90E2/FFFFFF?text=JD' }}
             style={styles.profileImage}
           />
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.editImageButton}
             onPress={handleProfilePictureEdit}
           >
             <Ionicons name="camera" size={16} color="#fff" />
           </TouchableOpacity>
         </View>
-        
+
         <View style={styles.userInfo}>
           <Text style={styles.userName}>{userName}</Text>
           <Text style={styles.userEmail}>{userEmail}</Text>
           <Text style={styles.userBio}>{userBio}</Text>
         </View>
-        
-        <TouchableOpacity 
+
+        <TouchableOpacity
           style={styles.editButton}
           onPress={() => setShowEditModal(true)}
         >
@@ -164,19 +170,19 @@ export default function Profile() {
       {/* Settings Section */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Settings</Text>
-        
+
         <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="notifications" size={24} color="#666" />
           <Text style={styles.settingText}>Notifications</Text>
           <Ionicons name="chevron-forward" size={20} color="#ccc" />
         </TouchableOpacity>
-        
+
         <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="shield-checkmark" size={24} color="#666" />
           <Text style={styles.settingText}>Privacy</Text>
           <Ionicons name="chevron-forward" size={20} color="#ccc" />
         </TouchableOpacity>
-        
+
         <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="help-circle" size={24} color="#666" />
           <Text style={styles.settingText}>Help & Support</Text>
@@ -200,7 +206,7 @@ export default function Profile() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Edit Profile</Text>
-            
+
             <Text style={styles.inputLabel}>Name</Text>
             <TextInput
               style={styles.input}
@@ -208,7 +214,7 @@ export default function Profile() {
               onChangeText={setTempName}
               placeholder="Enter your name"
             />
-            
+
             <Text style={styles.inputLabel}>Bio</Text>
             <TextInput
               style={[styles.input, styles.bioInput]}
@@ -218,7 +224,7 @@ export default function Profile() {
               multiline
               numberOfLines={3}
             />
-            
+
             <View style={styles.modalButtons}>
               <TouchableOpacity style={styles.cancelButton} onPress={handleCancelEdit}>
                 <Text style={styles.cancelButtonText}>Cancel</Text>
@@ -235,10 +241,7 @@ export default function Profile() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
+  container: { flex: 1, backgroundColor: '#f5f5f5' },
   header: {
     backgroundColor: '#fff',
     padding: 20,
@@ -274,23 +277,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 15,
   },
-  userName: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 5,
-  },
-  userEmail: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 10,
-  },
-  userBio: {
-    fontSize: 14,
-    color: '#888',
-    textAlign: 'center',
-    paddingHorizontal: 20,
-  },
+  userName: { fontSize: 24, fontWeight: 'bold', color: '#333', marginBottom: 5 },
+  userEmail: { fontSize: 16, color: '#666', marginBottom: 10 },
+  userBio: { fontSize: 14, color: '#888', textAlign: 'center', paddingHorizontal: 20 },
   editButton: {
     position: 'absolute',
     top: 40,
@@ -305,19 +294,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
   },
-  statItem: {
-    alignItems: 'center',
-  },
-  statNumber: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#1e90ff',
-  },
-  statLabel: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 5,
-  },
+  statItem: { alignItems: 'center' },
+  statNumber: { fontSize: 24, fontWeight: 'bold', color: '#1e90ff' },
+  statLabel: { fontSize: 14, color: '#666', marginTop: 5 },
   section: {
     backgroundColor: '#fff',
     marginTop: 10,
@@ -337,30 +316,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#f0f0f0',
   },
-  certificateIcon: {
-    marginRight: 15,
-  },
-  certificateInfo: {
-    flex: 1,
-  },
-  certificateTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#333',
-  },
-  certificateIssuer: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 2,
-  },
-  certificateDate: {
-    fontSize: 12,
-    color: '#999',
-    marginTop: 2,
-  },
-  viewButton: {
-    padding: 10,
-  },
+  certificateIcon: { marginRight: 15 },
+  certificateInfo: { flex: 1 },
+  certificateTitle: { fontSize: 16, fontWeight: '600', color: '#333' },
+  certificateIssuer: { fontSize: 14, color: '#666', marginTop: 2 },
+  certificateDate: { fontSize: 12, color: '#999', marginTop: 2 },
+  viewButton: { padding: 10 },
   settingItem: {
     flexDirection: 'row',
     alignItems: 'center',
